@@ -71,11 +71,11 @@ def make_players_table(data, cur, conn):
         birthyear = player['dateOfBirth'][0:4]
         nationality = player['nationality']
         players.append((id, name, position_id, birthyear, nationality))
-        # check if this id already exists in the table
+        #check if this id already exists in the table
         cur.execute("SELECT * FROM Players WHERE id=?", (id,)) # * to include ALL columns 
         player_real = cur.fetchone()
         if player_real is not None: #if player does exist
-        # update data instead of inserting new data
+        #update data instead of inserting new data
             cur.execute("UPDATE Players SET name=?, position_id=?, birthyear=?, nationality=? WHERE id=?", (name, position_id, birthyear, nationality, id))
         else: # if player does exist 
         # create new player for the table
