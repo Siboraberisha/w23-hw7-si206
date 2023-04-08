@@ -62,7 +62,7 @@ def make_players_table(data, cur, conn):
         positions[row[1]] = row[0] #set id of correspoding pos to the value of pos_id foct
 
     #get the players data from the JSON data
-    players = [] # empty dict for players data 
+    players = []  # empty dict for players data 
     for player in data['squad']:
         id = player['id']
         name = player['name']
@@ -81,7 +81,7 @@ def make_players_table(data, cur, conn):
         # create new player for the table
            cur.execute("INSERT INTO Players (id, name, position_id, birthyear, nationality) VALUES (?, ?, ?, ?, ?)", (id, name, position_id, birthyear, nationality))
     conn.commit()
-    
+
 ## [TASK 2]: 10 points
 # Finish the function nationality_search
 
